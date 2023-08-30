@@ -19,6 +19,7 @@ node {
      stage (' pre-deploy'){
                git branch: 'master', credentialsId: 'gitcredentials', url: 'https://github.com/Anusha0503/mvn-web-app4.git' 
                sh ' sed -i "s/TAG/\${TAG}/g" mvn-web-app4-deployment.yaml '
+               sh ' sed -i "s/IMAGE_NAME/\${IMAGE_NAME}/g" mvn-web-app4-deployment.yaml '
      }
      stage (' deploy to k8s'){
      sshagent(['45cb58ba-1251-4567-9ded-22142b4cd8df'])  {
