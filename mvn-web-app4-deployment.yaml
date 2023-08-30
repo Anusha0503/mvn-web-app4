@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mvn-web-app4-container
-        image: mydocker1405/mvn-web-app4:$TAG
+        image: mydocker1405/mvn-web-app4:TAG
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
