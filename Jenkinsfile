@@ -9,11 +9,11 @@ node {
                   }
               }
     stage ('docker build image'){
-      sh " docker build -t mvn-web-app4:v1 ."
+      sh " docker build -t sampleimage ."
     }
      stage ('docker tag&Push image'){
                sh " docker login -u mydocker1405 -p Password@123 "
-               sh " docker tag mvn-web-app4:v1 mydocker1405/mvn-web-app4:$BUILD_NUMBER "
+               sh " docker tag sampleimage mydocker1405/mvn-web-app4:$BUILD_NUMBER "
                sh  " docker push mydocker1405/mvn-web-app4:$BUILD_NUMBER "
      }
      stage (' deploy to k8s'){
