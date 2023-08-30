@@ -17,7 +17,7 @@ node {
                sh  " docker push mydocker1405/mvn-web-app4:$BUILD_NUMBER "
      }
      stage (' deploy to k8s'){
-     sshagent(['kubernetes_pem']) {
+     sshagent(['45cb58ba-1251-4567-9ded-22142b4cd8df'])  {
                sh " scp -o stricthostkeychecking=no mvn-web-app4-deployment.yaml ubuntu@18.204.199.199:/home/ubuntu"
                sh " scp -o stricthostkeychecking=no mvn-web-app4-service.yaml ubuntu@18.204.199.199:/home/ubuntu"        
                sh " ssh ubuntu@18.204.199.199  kubectl apply -f mvn-web-app4-deployment.yaml"
